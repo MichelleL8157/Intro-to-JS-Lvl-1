@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html><!-- THIS TAG REPRESENTS THE DOCUMENT OBJECT -->
     <head>
         <title></title>
         <style></style>
@@ -10,10 +10,96 @@
             function shoutTen() {
                 console.log("10!");
             }
+            /*
+            function initialize() {
+                num1 = 3;
+                num2 = 7;
+            }
+            */
+            function addNumbers() {
+                var result = num1 + num2;
+                console.log(result);
+            }
+            /*
+            function initialize() {
+                outputDiv = document.getElementById("divout");
+            }
+            */
+            function clickResponse() {
+                outputDiv.innerHTML = "Now you've clicked the button.";
+            }
+            function initialize() {
+                numberOutput = document.getELementById("numberout");
+                negativeButton = document.getElementById("negativebtn");
+
+                myNumber = 0;
+                negativesAllowed = false;
+
+                display();
+            }
+            function addOne() {
+                myNumber++;
+                display();
+            }
+            function subtractOne() {
+                /*
+                if (myNumber > 0) {
+                    myNumber--;
+                }
+                */
+                myNumber--;
+                if (myNumber < 0 && !negativesAllowed) {
+                    myNumber = 0;
+                }
+                display();
+            }
+            function toggleNegatives() {
+                /*
+                if (negativesAllowed) {
+                    negativesAllowed = false;
+                } else {
+                    negativesAllowed = true;
+                }
+                */
+               negativesAllowed = !negativesAllowed;
+                display();
+            }
+            function display() {
+                numberOutput.innerHTML = myNumber;
+                if (!negativesAllowed) {
+                    negativeButton.innerHTML = "Negatives are OFF";
+                } else {
+                    negativeButton.innerHTML = "Negatives are ON";
+                }
+            }
         </script>
     </head>
 
+    <body onload = "initialize();">
+        <h1 id = "numberout"></h1>
+        <hr />
+        <button onclick = "addOne();">Add</button>
+        <button onclick = "subtractOne();">Subtract</button>
+        <button onclick = "toggleNegatives();" id = "negativebtn">Negatives are OFF</button>
+    </body>
+    <!--
+        <body onload = "initialize();">
+        <div id = "divout">
+            You have not clicked the button.
+        </div>
+        <button onclick = "clickResponse();">Click Me!</button>
+    </body>
+    -->
+    
+    <!--
+        <body onload = "initialize();">
+        <button onclick = "addNumbers();">Add the 2 Numbers</button>
+    </body>
+    -->
+    
+    <!--
     <body onload = "greet();" >
         <button onclick = "shoutTen();">Shout 10</button>
     </body>
-</html>
+    -->
+</html> <!-- THIS TAG REPRESENTS THE DOCUMENT OBJECT -->
